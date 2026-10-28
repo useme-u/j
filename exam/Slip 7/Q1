@@ -1,0 +1,84 @@
+File 1 Indoor.java
+
+package game;
+
+public class Indoor
+{
+    String gameName;
+    String playerName;
+
+    public Indoor()
+    {
+        gameName = "Chess";
+        playerName = "Rahul";
+    }
+
+    public Indoor(String gameName, String playerName)
+    {
+        this.gameName = gameName;
+        this.playerName = playerName;
+    }
+
+    public void display()
+    {
+        System.out.println("Indoor Game: " + gameName);
+        System.out.println("Player Name: " + playerName);
+    }
+}
+
+
+
+File 2 Outdoor.java
+
+package game;
+
+public class Outdoor
+{
+    String gameName;
+    String playerName;
+
+    public Outdoor()
+    {
+        gameName = "Cricket";
+        playerName = "Amit";
+    }
+
+    public Outdoor(String gameName, String playerName)
+    {
+        this.gameName = gameName;
+        this.playerName = playerName;
+    }
+
+    public void display()
+    {
+        System.out.println("Outdoor Game: " + gameName);
+        System.out.println("Player Name: " + playerName);
+    }
+}
+
+File 3 GameDemo.java
+
+import game.Indoor;
+import game.Outdoor;
+
+public class GameDemo
+{
+    public static void main(String args[])
+    {
+        Indoor i1 = new Indoor();
+        Indoor i2 = new Indoor("Carrom", "Rohit");
+
+        Outdoor o1 = new Outdoor();
+        Outdoor o2 = new Outdoor("Football", "Akash");
+
+        System.out.println("Indoor Players:");
+        i1.display();
+        i2.display();
+
+        System.out.println();
+
+        System.out.println("Outdoor Players:");
+        o1.display();
+        o2.display();
+    }
+}

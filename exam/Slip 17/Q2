@@ -1,0 +1,39 @@
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class IntegerLinkedList
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+
+        LinkedList<Integer> list = new LinkedList<Integer>();
+
+        System.out.print("Enter number of elements: ");
+        int n = sc.nextInt();
+
+        for(int i = 0; i < n; i++)
+        {
+            System.out.print("Enter element: ");
+            list.add(sc.nextInt());
+        }
+
+        System.out.println("Original LinkedList: " + list);
+
+        System.out.print("Enter element to add at first position: ");
+        int value = sc.nextInt();
+        list.addFirst(value);
+
+        System.out.println("After adding at first position: " + list);
+
+        if(!list.isEmpty())
+        {
+            list.removeLast();
+        }
+
+        System.out.println("After deleting last element: " + list);
+        System.out.println("Size of LinkedList: " + list.size());
+
+        sc.close();
+    }
+}

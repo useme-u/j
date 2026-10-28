@@ -1,0 +1,64 @@
+class MyNumber
+{
+    private int number;
+
+    MyNumber()
+    {
+        number = 0;
+    }
+
+    MyNumber(int n)
+    {
+        number = n;
+    }
+
+    void isNegative()
+    {
+        if(number < 0)
+            System.out.println("Number is Negative");
+        else
+            System.out.println("Number is Not Negative");
+    }
+
+    void isPositive()
+    {
+        if(number > 0)
+            System.out.println("Number is Positive");
+        else
+            System.out.println("Number is Not Positive");
+    }
+
+    void isOdd()
+    {
+        if(number % 2 != 0)
+            System.out.println("Number is Odd");
+        else
+            System.out.println("Number is Not Odd");
+    }
+
+    void iseven()
+    {
+        if(number % 2 == 0)
+            System.out.println("Number is Even");
+        else
+            System.out.println("Number is Not Even");
+    }
+
+    public static void main(String args[])
+    {
+        if(args.length == 0)
+        {
+            System.out.println("Please pass a number as command line argument");
+            return;
+        }
+
+        int n = Integer.parseInt(args[0]);
+
+        MyNumber obj = new MyNumber(n);
+
+        obj.isNegative();
+        obj.isPositive();
+        obj.isOdd();
+        obj.iseven();
+    }
+}

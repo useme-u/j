@@ -1,0 +1,41 @@
+import java.util.Hashtable;
+import java.util.Enumeration;
+import java.util.Scanner;
+
+public class StudentHashTable
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        Hashtable<String, String> ht = new Hashtable<String, String>();
+
+        System.out.print("Enter number of students: ");
+        int n = sc.nextInt();
+        sc.nextLine();
+
+        for(int i = 0; i < n; i++)
+        {
+            System.out.print("Enter student name: ");
+            String name = sc.nextLine();
+
+            System.out.print("Enter mobile number: ");
+            String mobile = sc.nextLine();
+
+            ht.put(mobile, name);
+        }
+
+        System.out.println("\nStudent Details:");
+
+        Enumeration<String> e = ht.keys();
+
+        while(e.hasMoreElements())
+        {
+            String mobile = e.nextElement();
+            System.out.println("Mobile Number: " + mobile);
+            System.out.println("Student Name: " + ht.get(mobile));
+            System.out.println();
+        }
+
+        sc.close();
+    }
+}

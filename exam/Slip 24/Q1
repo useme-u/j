@@ -1,0 +1,33 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class CitySort
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number of cities: ");
+        int n = sc.nextInt();
+        sc.nextLine();
+
+        String cities[] = new String[n];
+
+        for(int i = 0; i < n; i++)
+        {
+            System.out.print("Enter city name: ");
+            cities[i] = sc.nextLine();
+        }
+
+        Arrays.sort(cities, java.util.Collections.reverseOrder());
+
+        System.out.println("Cities in Descending Order:");
+
+        for(int i = 0; i < n; i++)
+        {
+            System.out.println(cities[i]);
+        }
+
+        sc.close();
+    }
+}

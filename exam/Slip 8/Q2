@@ -1,0 +1,60 @@
+import java.io.*;
+import java.util.Scanner;
+
+public class FileCopy
+{
+    public static void main(String args[]) throws IOException
+    {
+        Scanner sc = new Scanner(System.in);
+
+        FileWriter fw1 = new FileWriter("F1.txt");
+
+        System.out.println("Enter contents for F1:");
+        String data = sc.nextLine();
+
+        fw1.write(data);
+        fw1.close();
+
+        BufferedReader br = new BufferedReader(new FileReader("F1.txt"));
+        FileWriter fw2 = new FileWriter("F2.txt");
+
+        int ch;
+
+        while((ch = br.read()) != -1)
+        {
+            if(Character.isUpperCase(ch))
+                fw2.write(Character.toLowerCase(ch));
+            else if(Character.isLowerCase(ch))
+                fw2.write(Character.toUpperCase(ch));
+            else
+                fw2.write(ch);
+        }
+
+        br.close();
+        fw2.close();
+
+        BufferedReader r1 = new BufferedReader(new FileReader("F1.txt"));
+        BufferedReader r2 = new BufferedReader(new FileReader("F2.txt"));
+        FileWriter fw3 = new FileWriter("F3.txt");
+
+        while((ch = r1.read()) != -1)
+            fw3.write(ch);
+
+        while((ch = r2.read()) != -1)
+            fw3.write(ch);
+
+        r1.close();
+        r2.close();
+        fw3.close();
+
+        BufferedReader r3 = new BufferedReader(new FileReader("F3.txt"));
+
+        System.out.println("\nContents of F3:");
+
+        while((data = r3.readLine()) != null)
+            System.out.println(data);
+
+        r3.close();
+        sc.close();
+    }
+}

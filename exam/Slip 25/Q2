@@ -1,0 +1,48 @@
+import java.io.*;
+
+public class FileCopy {
+    public static void main(String[] args) throws IOException {
+        FileReader fr = new FileReader("F1.txt");
+        BufferedReader br = new BufferedReader(fr);
+        FileWriter fw = new FileWriter("F2.txt");
+
+        int ch;
+        while ((ch = br.read()) != -1) {
+            if (Character.isUpperCase(ch))
+                fw.write(Character.toLowerCase(ch));
+            else if (Character.isLowerCase(ch))
+                fw.write(Character.toUpperCase(ch));
+            else
+                fw.write(ch);
+        }
+
+        br.close();
+        fw.close();
+
+        FileWriter f3 = new FileWriter("F3.txt");
+
+        BufferedReader b1 = new BufferedReader(new FileReader("F1.txt"));
+        while ((ch = b1.read()) != -1) {
+            f3.write(ch);
+        }
+        b1.close();
+
+        BufferedReader b2 = new BufferedReader(new FileReader("F2.txt"));
+        while ((ch = b2.read()) != -1) {
+            f3.write(ch);
+        }
+        b2.close();
+
+        f3.close();
+
+        BufferedReader b3 = new BufferedReader(new FileReader("F3.txt"));
+        System.out.println("Contents of F3:");
+        String line;
+
+        while ((line = b3.readLine()) != null) {
+            System.out.println(line);
+        }
+
+        b3.close();
+    }
+}

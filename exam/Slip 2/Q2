@@ -1,0 +1,53 @@
+import java.util.Hashtable;
+import java.util.Scanner;
+import java.util.Enumeration;
+
+public class EmployeeHashTable
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        Hashtable<String, Double> ht = new Hashtable<String, Double>();
+
+        System.out.print("Enter number of employees: ");
+        int n = sc.nextInt();
+        sc.nextLine();
+
+        for(int i = 0; i < n; i++)
+        {
+            System.out.print("Enter employee name: ");
+            String name = sc.nextLine();
+
+            System.out.print("Enter employee salary: ");
+            double salary = sc.nextDouble();
+            sc.nextLine();
+
+            ht.put(name, salary);
+        }
+
+        System.out.println("\nEmployee Details:");
+
+        Enumeration<String> names = ht.keys();
+
+        while(names.hasMoreElements())
+        {
+            String name = names.nextElement();
+            System.out.println("Name: " + name + ", Salary: " + ht.get(name));
+        }
+
+        System.out.print("\nEnter employee name to search: ");
+        String searchName = sc.nextLine();
+
+        if(ht.containsKey(searchName))
+        {
+            System.out.println("Employee Name: " + searchName);
+            System.out.println("Salary: " + ht.get(searchName));
+        }
+        else
+        {
+            System.out.println("Employee not found.");
+        }
+
+        sc.close();
+    }
+}

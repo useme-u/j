@@ -1,0 +1,57 @@
+import java.util.Scanner;
+
+class Circle
+{
+    double radius;
+
+    Circle(double r)
+    {
+        radius = r;
+    }
+
+    double area()
+    {
+        return 3.14 * radius * radius;
+    }
+}
+
+class Cylinder extends Circle
+{
+    double height;
+
+    Cylinder(double r, double h)
+    {
+        super(r);
+        height = h;
+    }
+
+    double area()
+    {
+        return 2 * 3.14 * radius * (radius + height);
+    }
+}
+
+public class CylinderCircle
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter radius of circle: ");
+        double r1 = sc.nextDouble();
+
+        Circle c = new Circle(r1);
+        System.out.println("Area of Circle: " + c.area());
+
+        System.out.print("Enter radius of cylinder: ");
+        double r2 = sc.nextDouble();
+
+        System.out.print("Enter height of cylinder: ");
+        double h = sc.nextDouble();
+
+        Cylinder cy = new Cylinder(r2, h);
+        System.out.println("Surface Area of Cylinder: " + cy.area());
+
+        sc.close();
+    }
+}

@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+interface Integer
+{
+    void check();
+}
+
+class NumberCheck implements Integer
+{
+    int number;
+
+    NumberCheck(int n)
+    {
+        number = n;
+    }
+
+    public void check()
+    {
+        if(number > 0)
+            System.out.println("Number is Positive");
+        else if(number < 0)
+            System.out.println("Number is Negative");
+        else
+            System.out.println("Number is Zero");
+    }
+}
+
+public class IntegerDemo
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a number: ");
+        int n = sc.nextInt();
+
+        NumberCheck obj = new NumberCheck(n);
+        obj.check();
+
+        sc.close();
+    }
+}
